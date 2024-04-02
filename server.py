@@ -10,7 +10,7 @@ defaultsound = "/home/abdul/PiFmRds/src/sound.wav"
 freq = "89.7"
 
 def start():
-    subprocess.run(["nohup", "/home/abdul/PiFmRds/src/pi_fm_rds", "-freq", freq, "-audio", defaultsound, "&"])
+    subprocess.run(["nohup", "sudo", "/home/abdul/PiFmRds/src/pi_fm_rds", "-freq", freq, "-audio", defaultsound, "&"])
     
 start()
     
