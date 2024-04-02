@@ -6,8 +6,8 @@ import subprocess
 
 # app = FastAPI()
 
-defaultsound = "sound.wav"
-freq = 89.7
+defaultsound = "/home/abdul/PiFmRds/src/sound.wav"
+freq = "89.7"
 
 def start():
     subprocess.run(["nohup", "/home/abdul/PiFmRds/src/pi_fm_rds", "-freq", freq, "-audio", defaultsound, "&"])
