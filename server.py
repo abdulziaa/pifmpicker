@@ -49,6 +49,25 @@ def stop():
         return jsonify(message="Audio stopped")
     else:
         return jsonify(message="Audio is not playing")
+    
+music_dir = "/home/abdul/PiFmRds/src/music"
+
+def get_music_info():
+    music_info = []
+    for file_name in os.listdir(music_dir):
+        if file_name.endswith(".mp3"):
+            music_info.append({
+                "title": file_name[:-4],  # Remove ".mp3" extension
+                "albumArt": f"/music/{file_name}.jpg",  # Assuming album art file name is same as music file with .jpg extension
+                "artist": "Unknown",  # You can retrieve this information from the MP3 metadata
+                "album": "Unknown"  # You can retrieve this information from the MP3 metadata
+            })
+    return music_info
+
+@app.route('/')
+def index():
+    music_info = get_music_info()
+    return render_template('index.html', music_info=music_info)
 
 
 if __name__ == "__main__":

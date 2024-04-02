@@ -1,2 +1,2 @@
-music/*
-!music/sound.wav
+templates/music/*
+!templates/music/sound.wav
